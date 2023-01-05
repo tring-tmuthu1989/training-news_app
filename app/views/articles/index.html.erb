@@ -1,0 +1,13 @@
+<h2 class="mb-3">
+  Articles
+  <%if policy(Article).new?%>
+    <%= link_to new_article_path, class: "btn btn-primary btn-sm float-end" do%>
+      <em class="fas fa-plus"></em> New Article
+    <% end -%>
+  <%end%>
+</h2>
+<div class="row">
+  <%@articles.each do |article|%>
+    <%= render article%>
+  <%end%>
+</div>

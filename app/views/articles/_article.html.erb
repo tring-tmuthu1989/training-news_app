@@ -1,0 +1,25 @@
+<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+  <div class="card">
+    <div class="card-body">
+      <h4><%= article.title%></h4>
+      <p>
+        <%= article.body.html_safe%>
+      </p>
+      <div>
+        <%= link_to article, class: "btn btn-info btn-sm" do%>
+          <em class="fas fa-eye"></em> View
+        <% end -%>
+        <%if policy(article).edit?%>
+          <%= link_to edit_article_path(article), class: "btn btn-warning btn-sm" do%>
+            <em class="fas fa-edit"></em> Edit
+          <% end -%>
+        <%end%>
+        <%if policy(article).destroy?%>
+          <%= link_to article, method: :delete, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "btn btn-danger btn-sm" do%>
+            <em class="fas fa-trash"></em> Delete
+          <% end -%>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>
